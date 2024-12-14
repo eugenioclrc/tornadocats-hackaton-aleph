@@ -2,22 +2,23 @@
 
 pragma solidity ^0.8.24;
 
-import "fhevm/lib/TFHE.sol";
-import "fhevm/config/ZamaFHEVMConfig.sol";
-import "fhevm/config/ZamaGatewayConfig.sol";
-import "fhevm/gateway/GatewayCaller.sol";
-import "fhevm-contracts/contracts/token/ERC20/extensions/ConfidentialERC20.sol";
+import {IERC20Metadata} from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
+
+import "fhevm-contracts/contracts/token/ERC20/ConfidentialERC20.sol";
 
 /// @notice This contract implements an encrypted ERC20-like token with confidential balances using Zama's FHE library.
 /// @dev It supports typical ERC20 functionality such as transferring tokens, minting, and setting allowances,
 /// @dev but uses encrypted data types.
 contract WrappedPrivacyERC20 is ConfidentialERC20 {
+    address immutable public UNDERLYING;
+    uint8 immutable public UNDERLYING_DECIMALS;
 
-    /// @notice Constructor to initialize the token's name and symbol, and set up the owner
-    /// @param name_ The name of the token
-    /// @param symbol_ The symbol of the token
-    constructor(address token) {
-        super("My Confidential ERC20", "MCE20");
+    constructor(address token) ConfidentialERC20("", "") {
+        UNDERLYING = token;
+        IERC20Metadata tokenContract = IERC20Metadata(token);
+        _name = string.concat("Wrapped privacy - ", tokenContract.name());
+        _symbol = string.concat("wp", tokenContract.symbol());
+        UNDERLYING_DECIMALS = tokenContract.decimals();
     }
 
 }
