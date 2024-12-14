@@ -149,6 +149,9 @@ const config: HardhatUserConfig = {
     outDir: "types",
     target: "ethers-v6",
   },
+  sourcify: {
+    enabled: true
+  }  
 };
 
 export default config;
