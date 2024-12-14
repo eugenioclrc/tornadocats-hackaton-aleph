@@ -9,7 +9,7 @@ export async function deployMockERC20Fixture(): Promise<MockToken> {
 
 
   const contractFactory = await ethers.getContractFactory("MockToken");
-  const contract = await contractFactory.connect(signers.alice).deploy("Naraggara", "NARA", 18, 20e18);
+  const contract = await contractFactory.connect(signers.alice).deploy("Naraggara", "NARA", 18, BigInt(20e18));
   await contract.waitForDeployment();
 
   return contract;
