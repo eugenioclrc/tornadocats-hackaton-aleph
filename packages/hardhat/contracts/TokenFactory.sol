@@ -12,10 +12,10 @@ contract TokenFactory {
     function createToken(address token) external {
         require(tokenMap[token] == address(0), "Token already exists");
 
-        WrappedPrivacyERC20 wtoken = new WrappedPrivacyERC20(token);
+        WrappedPrivacyERC20 wtoken = new WrappedPrivacyERC20();
+        wtoken.initialize(token);
         tokenMap[token] = address(wtoken);
 
         emit TokenCreated(token, address(wtoken));
     }
-
 }

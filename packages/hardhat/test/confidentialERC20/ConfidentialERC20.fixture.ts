@@ -7,8 +7,11 @@ export async function deployConfidentialERC20Fixture(addressToken): Promise<Wrap
   const signers = await getSigners();
   
   const contractFactory = await ethers.getContractFactory("WrappedPrivacyERC20");
-  const contract = await contractFactory.connect(signers.alice).deploy(addressToken);
+  const contract = await contractFactory.connect(signers.alice).deploy();
   await contract.waitForDeployment();
 
+  const tx = await contract.initialize(addressToken);
+  await tx.wait();
+  
   return contract;
 }
