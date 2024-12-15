@@ -36,6 +36,7 @@
 	},
 	"dependencies": {
 		"@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+		"@sveltejs/adapter-vercel": "^5.5.2",
 		"esbuild-plugin-polyfill-node": "^0.3.0",
 		"ethers": "^6.13.4",
 		"fhevmjs": "^0.6.0",
