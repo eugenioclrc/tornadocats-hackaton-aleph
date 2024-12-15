@@ -5,7 +5,7 @@
 
 	import { connect, provider, validNetwork,  connected, switchNetwork, account} from '../lib/stores';
 
-  const tokenFactory = "0x110613840629d4bbe6b8220F1e8e457C42D19A69";
+  const tokenFactory = "0xEb25882253bcCeFf23Ae2ec76Cc2648A13d16f87";
 
   let tokenAddress = '';
   let openCreateModal = false;
