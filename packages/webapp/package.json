@@ -14,7 +14,9 @@
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
+		"@nomicfoundation/hardhat-ignition": "^0.15.8",
 		"@nomicfoundation/hardhat-ignition-ethers": "^0.15.8",
+		"@nomicfoundation/ignition-core": "^0.15.8",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.9.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
