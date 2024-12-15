@@ -147,6 +147,9 @@ async function fetchAndDecrypt() {
         eBalance,
         wrapped,
       );
+
+      
+    dBalance = formatUnits(clearBalance.toString(), 6);
 }
 
 onMount(async () => {

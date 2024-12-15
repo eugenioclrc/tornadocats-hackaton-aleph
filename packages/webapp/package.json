@@ -14,6 +14,7 @@
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
+		"@nomicfoundation/hardhat-ignition-ethers": "^0.15.8",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.9.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
@@ -32,8 +33,10 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-	  "ethers": "^6.13.4",
-      "fhevmjs": "^0.6.0",
-    "idb": "^8.0.0"
+		"@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+		"esbuild-plugin-polyfill-node": "^0.3.0",
+		"ethers": "^6.13.4",
+		"fhevmjs": "^0.6.0",
+		"idb": "^8.0.0"
 	}
 }

@@ -5,7 +5,31 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
+
+
+<script>
+    window.global = window;
+		setTimeout(() => {
+			if( window.Buffer && window.Buffer.Buffer) window.Buffer = window.Buffer.Buffer
+		}, 30);
+		setTimeout(() => {
+			if( window.Buffer && window.Buffer.Buffer) window.Buffer = window.Buffer.Buffer
+		}, 300);
+
+		setTimeout(() => {
+			if( window.Buffer && window.Buffer.Buffer) window.Buffer = window.Buffer.Buffer
+		}, 1000);
+
+  </script>
+  <script type="module">
+    import {Buffer} from "buffer";
+    window.Buffer = Buffer;
+
+    
+  </script>
 	</head>
+
+
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>

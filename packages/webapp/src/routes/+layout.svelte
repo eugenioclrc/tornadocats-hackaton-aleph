@@ -2,6 +2,7 @@
 	import '../app.css';
 	let { children } = $props();
 
+	import Buffer from 'buffer'; 
 	import {init } from '../lib/stores';
 	import { init as initZama } from '../lib/fhevmjs';
 
@@ -9,6 +10,7 @@
 
 
 	onMount(async () => {
+		window.Buffer = Buffer;
 		await init();
 		await initZama();
 	});

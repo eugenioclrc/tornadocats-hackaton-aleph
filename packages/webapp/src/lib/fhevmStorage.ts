@@ -1,8 +1,10 @@
 import { openDB } from 'idb';
 
+let _dbInstance;
 
 const dbPromise = () => {
-  return openDB('fhevm', 1, {
+  if (_dbInstance) return _dbInstance;
+  _dbInstance = openDB('fhevm', 1, {
     upgrade(db) {
       if (!db.objectStoreNames.contains('paramsStore')) {
         db.createObjectStore('paramsStore', { keyPath: 'acl' });
@@ -12,6 +14,8 @@ const dbPromise = () => {
       }
     },
   });
+  return _dbInstance;
+  
 }
 
 export async function storePublicParams(
